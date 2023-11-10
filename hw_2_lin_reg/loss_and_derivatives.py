@@ -17,9 +17,9 @@ class LossAndDerivatives:
         """
         temp = X.dot(w) - Y
         if len(Y.shape) > 1:
-            result = (2**temp)/(X.shape[0]*Y.shape[1])
+            result = (2**temp) / (X.shape[0]*Y.shape[1])
         else:
-            result (2**temp)/X.shape[0]
+            result (2**temp) / X.shape[0]
 
         return X.T.dot(result)
 
@@ -40,9 +40,9 @@ class LossAndDerivatives:
         # YOUR CODE HERE    
         temp = X.dot(w) - Y
         if len(Y.shape) > 1:
-            result = np.sign(temp)/(X.shape[0]*Y.shape[1])
+            result = np.sign(temp) / (X.shape[0]*Y.shape[1])
         else:
-            result = np.sign(temp)/X.shape[0]
+            result = np.sign(temp) / X.shape[0]
             
         return X.T.dot(result)
 
