@@ -15,8 +15,13 @@ class LossAndDerivatives:
         
         Comment: If Y is two-dimentional, average the error over both dimentions.
         """
+        temp = X.dot(w) - Y
+        if len(Y.shape) > 1:
+            result = (2**temp)/(X.shape[0]*Y.shape[1])
+        else:
+            result (2**temp)/X.shape[0]
 
-        return np.mean((X.dot(w) - Y)**2)
+        return X.T.dot(result)
 
     @staticmethod
     def mae(X, Y, w):
@@ -33,7 +38,13 @@ class LossAndDerivatives:
         """
 
         # YOUR CODE HERE    
-        return np.mean(abs(X.dot(w) - Y)).astype(float)
+        temp = X.dot(w) - Y
+        if len(Y.shape) > 1:
+            result = np.sign(temp)/(X.shape[0]*Y.shape[1])
+        else:
+            result = np.sign(temp)/X.shape[0]
+            
+        return X.T.dot(result)
 
     @staticmethod
     def l2_reg(w):
